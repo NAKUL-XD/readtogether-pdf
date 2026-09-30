@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "npx esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --format=esm --packages=external",
-    "start": "node dist/index.js",
-    "vercel-build": "npm run build",
+    "build": "echo 'No build needed - using tsx'",
+    "start": "tsx src/index.ts",
+    "vercel-build": "echo 'Vercel not used'",
     "lint": "eslint . --ext ts"
   },
   "dependencies": {
