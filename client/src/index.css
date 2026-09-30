@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #fdf8f0;
+    --color-text: #1a1a1a;
+    --color-muted: #717171;
+    --color-border: #d1d1d1;
+    --color-accent: #ed8914;
+    --color-accent-hover: #de6e0c;
+  }
+
+  .dark {
+    --color-bg: #1a1a1a;
+    --color-text: #fdf8f0;
+    --color-muted: #8c8c8c;
+    --color-border: #424242;
+    --color-accent: #f1a13d;
+    --color-accent-hover: #f6c074;
+  }
+
+  .sepia {
+    --color-bg: #f4ecd8;
+    --color-text: #3d2b1f;
+    --color-muted: #8b7355;
+    --color-border: #d4c4a8;
+  }
+
+  * {
+    @apply border-charcoal-200 dark:border-charcoal-700;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-primary-500/30 text-inherit;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-charcoal-400/50 rounded-full hover:bg-charcoal-400;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-[var(--color-bg)];
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 px-5 py-2.5 text-sm;
+  }
+
+  .btn-secondary {
+    @apply btn bg-charcoal-100 text-charcoal-900 hover:bg-charcoal-200 active:bg-charcoal-300 dark:bg-charcoal-800 dark:text-charcoal-100 dark:hover:bg-charcoal-700 dark:active:bg-charcoal-600 px-5 py-2.5 text-sm;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-charcoal-700 hover:bg-charcoal-100 active:bg-charcoal-200 dark:text-charcoal-300 dark:hover:bg-charcoal-800 dark:active:bg-charcoal-700 px-4 py-2 text-sm;
+  }
+
+  .btn-icon {
+    @apply btn p-2 rounded-xl;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-lg bg-white dark:bg-charcoal-900 border border-charcoal-300 dark:border-charcoal-700 text-charcoal-900 dark:text-charcoal-100 placeholder-charcoal-400 transition-all duration-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-charcoal-700 dark:text-charcoal-300 mb-1.5;
+  }
+
+  .card {
+    @apply bg-white dark:bg-charcoal-900 rounded-2xl shadow-soft border border-charcoal-200/50 dark:border-charcoal-700/50 overflow-hidden;
+  }
+
+  .card-elevated {
+    @apply bg-white dark:bg-charcoal-900 rounded-2xl shadow-elevated border border-charcoal-200/50 dark:border-charcoal-700/50 overflow-hidden;
+  }
+
+  .page-container {
+    @apply relative bg-white dark:bg-charcoal-900 shadow-page rounded-xl overflow-hidden;
+  }
+
+  .page-container:hover {
+    @apply shadow-page-hover;
+  }
+
+  .toolbar {
+    @apply fixed bottom-0 left-0 right-0 z-toolbar bg-white/80 dark:bg-charcoal-900/80 backdrop-blur-xl border-t border-charcoal-200/50 dark:border-charcoal-700/50 px-4 py-3 safe-area-bottom;
+  }
+
+  .sidebar {
+    @apply fixed inset-y-0 z-sidebar bg-white dark:bg-charcoal-900 border-r border-charcoal-200/50 dark:border-charcoal-700/50 transform transition-transform duration-300 ease-out;
+  }
+
+  .bottom-sheet {
+    @apply fixed bottom-0 left-0 right-0 z-modal bg-white dark:bg-charcoal-900 rounded-t-2xl border-t border-charcoal-200/50 dark:border-charcoal-700/50 transform transition-transform duration-300 ease-out;
+  }
+
+  .overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] transition-opacity duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-out {
+    animation: fadeOut 0.2s ease-in forwards;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-area-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}
