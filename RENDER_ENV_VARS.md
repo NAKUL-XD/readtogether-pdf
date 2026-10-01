@@ -23,39 +23,34 @@ your-super-secret-jwt-key-change-in-production-min-32-chars-long
 **IMPORTANT:** Your frontend URL for CORS and Socket.IO
 
 ```
-# Option 1: Single production URL (after frontend deployment):
-https://readtogether.vercel.app
+# YOUR PRODUCTION URL:
+https://client-nu-eight-88.vercel.app
 
-# Option 2: Multiple URLs (comma-separated, for both dev and prod):
-http://localhost:3000,https://readtogether.vercel.app
+# For both localhost AND production (recommended):
+http://localhost:3000,https://client-nu-eight-88.vercel.app
 
-# Option 3: Wildcard (ONLY for testing - NOT SECURE):
+# Wildcard - ONLY for initial testing:
 *
 ```
 
-⚠️ **Recommended approach:**
+⚠️ **Use this for your Render deployment:**
 
-**During initial backend deployment:**
 ```
-CLIENT_URL=*
+CLIENT_URL=https://client-nu-eight-88.vercel.app
 ```
-This allows any origin temporarily so you can test.
 
-**After frontend deployment (CHANGE THIS ASAP):**
+Or if you want to test from both localhost and production:
 ```
-CLIENT_URL=https://readtogether.vercel.app
-```
-Or if you want to keep localhost access for development:
-```
-CLIENT_URL=http://localhost:3000,https://readtogether.vercel.app
+CLIENT_URL=http://localhost:3000,https://client-nu-eight-88.vercel.app
 ```
 
 **How to update:**
-1. Deploy backend first
-2. Deploy frontend and get the URL
+1. ✅ Frontend deployed at: `https://client-nu-eight-88.vercel.app`
+2. Deploy backend on Render
 3. Go to Render Dashboard → Your Service → Environment
-4. Update `CLIENT_URL` with your frontend URL
+4. Set `CLIENT_URL=https://client-nu-eight-88.vercel.app`
 5. Click "Save Changes" (auto-restarts)
+6. Update your frontend .env with the Render backend URL
 
 ### 4. NODE_ENV
 ```
@@ -86,11 +81,13 @@ Once your backend is deployed on Render, you'll get a URL like:
 https://readtogether-server.onrender.com
 ```
 
-Update your frontend environment variables to point to this URL:
+Update your Vercel frontend environment variables:
 ```
 VITE_API_URL=https://readtogether-server.onrender.com/api
 VITE_SOCKET_URL=https://readtogether-server.onrender.com
 ```
+
+Go to Vercel Dashboard → Your Project → Settings → Environment Variables
 
 ---
 
