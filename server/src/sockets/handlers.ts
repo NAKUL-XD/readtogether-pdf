@@ -168,6 +168,8 @@ export function setupSocketHandlers(io: Server): void {
       await RoomService.updateParticipantPage(new Types.ObjectId(roomId), new Types.ObjectId(userId), pageNumber)
 
       console.log('[Socket] Broadcasting page change to room:', roomId)
+      console.log('[Socket] Sockets in room:', io.sockets.adapter.rooms.get(roomId)?.size || 0)
+
       socket.to(roomId).emit('page_changed', {
         pageNumber,
         userId,
@@ -175,6 +177,8 @@ export function setupSocketHandlers(io: Server): void {
         color: socket.userData!.color,
         animated: true,
       })
+
+      console.log('[Socket] Broadcast complete')
     })
 
     socket.on('chat_message', async (data: { roomId: string; message: string }) => {
