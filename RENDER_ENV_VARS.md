@@ -57,11 +57,10 @@ CLIENT_URL=http://localhost:3000,https://client-nu-eight-88.vercel.app
 production
 ```
 
-### 5. PORT (Auto-set by Render)
-```
-10000
-```
-> Note: Render automatically sets this, but it's defined in render.yaml
+### 5. PORT
+Automatically set by Render to `10000`. Your code now reads `PORT` first, then falls back to `SERVER_PORT`.
+
+**You don't need to set this manually** - Render provides it automatically.
 
 ---
 

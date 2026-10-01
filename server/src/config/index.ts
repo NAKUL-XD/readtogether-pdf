@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export const config = {
-  port: parseInt(process.env.SERVER_PORT || '4000', 10),
+  port: parseInt(process.env.PORT || process.env.SERVER_PORT || '4000', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
   mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017/readtogether',
   jwtSecret: process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production',
