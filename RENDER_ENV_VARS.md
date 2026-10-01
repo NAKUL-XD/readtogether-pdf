@@ -6,7 +6,7 @@ Add these in your Render Dashboard when deploying:
 
 ### 1. MONGODB_URI
 ```
-mongodb+srv://nakullegendary_db_user:nAKUL2204@cluster0.bzflis9.mongodb.net/readtogether?retryWrites=true&w=majority&appName=Cluster0
+mongodb+srv://worknakul08_db_user:bgPNPDEz8eq6dFqG@cluster0.rkpp55d.mongodb.net/readtogether?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 ### 2. JWT_SECRET

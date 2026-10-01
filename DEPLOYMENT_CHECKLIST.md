@@ -19,7 +19,7 @@
 Add these **3 environment variables** in Render:
 
 ```env
-MONGODB_URI=mongodb+srv://nakullegendary_db_user:nAKUL2204@cluster0.bzflis9.mongodb.net/readtogether?retryWrites=true&w=majority&appName=Cluster0
+MONGODB_URI=mongodb+srv://worknakul08_db_user:bgPNPDEz8eq6dFqG@cluster0.rkpp55d.mongodb.net/readtogether?retryWrites=true&w=majority&appName=Cluster0
 
 JWT_SECRET=your-super-secret-jwt-key-change-in-production-min-32-chars-long
 
