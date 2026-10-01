@@ -64,6 +64,32 @@ Automatically set by Render to `10000`. Your code now reads `PORT` first, then f
 
 ---
 
+## 📦 Storage Configuration
+
+### STORAGE_TYPE
+```
+supabase
+```
+
+### SUPABASE_URL
+```
+https://edgxjfapvlbpexnurxac.supabase.co
+```
+
+### SUPABASE_KEY
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkZ3hqZmFwdmxicGV4bnVyeGFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4MzE1OTQsImV4cCI6MjEwNjQwNzU5NH0.SfM0gQyEvrON5zrFFuGQfMZu-pERf7YMKfKAPFY03Qw
+```
+
+### SUPABASE_BUCKET
+```
+pdf
+```
+
+> **Why Supabase?** Render's free tier has ephemeral storage - uploaded files disappear on restart. Supabase provides persistent cloud storage.
+
+---
+
 ## MongoDB Atlas Network Access
 
 ✅ Make sure your MongoDB Atlas is configured to allow access from anywhere:

@@ -24,6 +24,11 @@ MONGODB_URI=mongodb+srv://worknakul08_db_user:bgPNPDEz8eq6dFqG@cluster0.rkpp55d.
 JWT_SECRET=your-super-secret-jwt-key-change-in-production-min-32-chars-long
 
 CLIENT_URL=https://client-nu-eight-88.vercel.app
+
+STORAGE_TYPE=supabase
+SUPABASE_URL=https://edgxjfapvlbpexnurxac.supabase.co
+SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkZ3hqZmFwdmxicGV4bnVyeGFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4MzE1OTQsImV4cCI6MjEwNjQwNzU5NH0.SfM0gQyEvrON5zrFFuGQfMZu-pERf7YMKfKAPFY03Qw
+SUPABASE_BUCKET=pdf
 ```
 
 ### Step 3: Deploy!
