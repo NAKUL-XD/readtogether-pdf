@@ -20,16 +20,42 @@ your-super-secret-jwt-key-change-in-production-min-32-chars-long
 ```
 
 ### 3. CLIENT_URL
-Your frontend URL (update after deploying frontend):
-```
-# During setup, use:
-http://localhost:3000
+**IMPORTANT:** Your frontend URL for CORS and Socket.IO
 
-# After frontend deployment, update to:
-https://your-frontend.vercel.app
-# or
-https://your-frontend.netlify.app
 ```
+# Option 1: Single production URL (after frontend deployment):
+https://readtogether.vercel.app
+
+# Option 2: Multiple URLs (comma-separated, for both dev and prod):
+http://localhost:3000,https://readtogether.vercel.app
+
+# Option 3: Wildcard (ONLY for testing - NOT SECURE):
+*
+```
+
+⚠️ **Recommended approach:**
+
+**During initial backend deployment:**
+```
+CLIENT_URL=*
+```
+This allows any origin temporarily so you can test.
+
+**After frontend deployment (CHANGE THIS ASAP):**
+```
+CLIENT_URL=https://readtogether.vercel.app
+```
+Or if you want to keep localhost access for development:
+```
+CLIENT_URL=http://localhost:3000,https://readtogether.vercel.app
+```
+
+**How to update:**
+1. Deploy backend first
+2. Deploy frontend and get the URL
+3. Go to Render Dashboard → Your Service → Environment
+4. Update `CLIENT_URL` with your frontend URL
+5. Click "Save Changes" (auto-restarts)
 
 ### 4. NODE_ENV
 ```

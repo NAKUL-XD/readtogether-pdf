@@ -15,9 +15,14 @@ import { errorHandler, notFoundHandler } from '@/middleware'
 const app = express()
 const httpServer = createServer(app)
 
+// Allow multiple origins (for development and production)
+const allowedOrigins = config.clientUrl.includes(',')
+  ? config.clientUrl.split(',').map(url => url.trim())
+  : config.clientUrl
+
 const io = new Server(httpServer, {
   cors: {
-    origin: config.clientUrl,
+    origin: allowedOrigins,
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -32,7 +37,7 @@ app.use(helmet({
 }))
 
 app.use(cors({
-  origin: config.clientUrl,
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
